@@ -32,6 +32,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
         <meta name="theme-color" content="#317EFB" />
       </Head>
+      <header>
+      <button className="hamburger-menu">
+        </button>
+      </header>
       <Component {...pageProps} />
     </>
   )
