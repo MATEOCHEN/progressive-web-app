@@ -13,15 +13,30 @@ const Notifications = () => {
     </>
   );
 };
-const sendNotification = () => {
-  Notification.requestPermission().then((result) => {
-    if (result === "granted") {
-      new Notification("steven good", {
-        body: "created by steven",
-        icon: "https://cdn.pixabay.com/photo/2016/06/23/18/55/apple-1475977_960_720.png",
-      });
+const sendNotification = async () => {
+  if (Notification.permission === "granted") {
+    showNotification("Steven so goood!");
+  } else {
+    if (Notification.permission !== "denied") {
+      const permission = await Notification.requestPermission();
+
+      if (permission === "granted") {
+        await showNotification("Steven so goood!");
+      }
     }
-  });
+  }
+};
+const showNotification = async (body: string) => {
+  const { navigator } = window;
+  const registration = await navigator.serviceWorker.getRegistration();
+  const title = "What PWA Can Do Today";
+  const payload = {
+    body,
+  };
+
+  if (registration) {
+    registration.showNotification(title, payload);
+  }
 };
 
 export default Notifications;
