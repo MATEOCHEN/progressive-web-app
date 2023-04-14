@@ -1,4 +1,5 @@
-import styles from '../styles/Home.module.css'
+import styles from "../styles/Home.module.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -9,14 +10,18 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+          Get started by click here{" "}
+          <Link href="/prototype">
+            <code className={styles.card}>Prototype</code>
+          </Link>{" "}
         </p>
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h3>Documentation &rarr;</h3>
-            <p>Find in-depth testing information about Next.js features and API.</p>
+            <p>
+              Find in-depth testing information about Next.js features and API.
+            </p>
           </a>
 
           <a href="https://nextjs.org/learn" className={styles.card}>
@@ -52,10 +57,10 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
     </div>
-  )
+  );
 }

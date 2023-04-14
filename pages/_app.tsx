@@ -1,8 +1,11 @@
-import Head from 'next/head'
-import '../styles/globals.css'
-import { AppProps } from 'next/app'
+import Head from "next/head";
+import "../styles/globals.css";
+import Sidebar from "../components/sidebar";
+import { AppProps } from "next/app";
+import { useState } from "react";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
   return (
     <>
       <Head>
@@ -33,10 +36,27 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="theme-color" content="#317EFB" />
       </Head>
       <header>
-      <button className="hamburger-menu">
+        <button
+          className="close-sidebar"
+          aria-label="Toggle Sidebar"
+          onClick={() => {
+            setSidebarOpen(!isSidebarOpen);
+          }}
+        >
+          {" "}
+          Open
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
+        <Sidebar
+          toggleOpen={(open) => {
+            setSidebarOpen(open);
+          }}
+          isOpen={isSidebarOpen}
+        />
       </header>
       <Component {...pageProps} />
     </>
-  )
+  );
 }

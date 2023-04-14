@@ -1,9 +1,9 @@
 html,
 body {
   margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
 }
 
 header {
@@ -25,51 +25,6 @@ header {
   height: 40px;
 }
 
-.hamburger-menu {
-  width: 30px;
-  height: 30px;
-  position: relative;
-  cursor: pointer;
-}
-
-.hamburger-menu span {
-  display: block;
-  position: absolute;
-  height: 2px;
-  width: 100%;
-  background-color: #333;
-  transition: all 0.3s ease-in-out;
-}
-
-.hamburger-menu span:nth-child(1) {
-  top: 0;
-}
-
-.hamburger-menu span:nth-child(2),
-.hamburger-menu span:nth-child(3) {
-  top: 14px;
-}
-
-.hamburger-menu span:nth-child(3) {
-  top: 28px;
-}
-
-.hamburger-menu.open span:nth-child(1) {
-  transform: rotate(45deg);
-  top: 12px;
-  left: 8px;
-}
-
-.hamburger-menu.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger-menu.open span:nth-child(3) {
-  transform: rotate(-45deg);
-  top: 12px;
-  left: 8px;
-}
-
 main {
   padding-top: 80px;
 }
@@ -84,4 +39,131 @@ footer {
 footer ul {
   list-style: none;
   margin: 0;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  overflow-y: auto;
+  transition: transform 0.3s ease-out;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.sidebar-header h3 {
+  margin: 0;
+}
+
+/* Sidebar is hidden by default on small screens */
+.sidebar.hide {
+  transform: translateX(-100%);
+}
+
+
+/* Menu styles */
+.menu {
+  padding: 1rem;
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  display: block;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.2s ease-out;
+}
+
+.menu a:hover {
+  background-color: #eee;
+}
+
+/* Toggle icon styles */
+.toggle-sidebar span:nth-child(1) {
+  transform: translateY(0);
+}
+
+.toggle-sidebar span:nth-child(2) {
+  transform: translateY(5px);
+}
+
+.toggle-sidebar span:nth-child(3) {
+  transform: translateY(10px);
+}
+
+/* Toggle icon styles when sidebar is open */
+.sidebar.show .toggle-sidebar span:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.sidebar.show .toggle-sidebar span:nth-child(2) {
+  transform: translateY(5px) rotate(-45deg);
+}
+
+.sidebar.show .toggle-sidebar span:nth-child(3) {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.toggle-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 1.5rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.toggle-sidebar span {
+  display: block;
+  height: 2px;
+  background-color: #333;
+  transition: transform 0.2s ease-out;
+}
+
+/* Toggle icon styles */
+.toggle-sidebar span:nth-child(1) {
+  transform: translateY(0);
+}
+
+.toggle-sidebar span:nth-child(2) {
+  transform: translateY(5px);
+}
+
+.toggle-sidebar span:nth-child(3) {
+  transform: translateY(10px);
+}
+
+/* Toggle icon styles when sidebar issidebar open */
+.sidebar.show .toggle-sidebar span:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.sidebar.show .toggle-sidebar span:nth-child(2) {
+  transform: translateY(5px) rotate(-45deg);
+}
+
+.sidebar.show .toggle-sidebar span:nth-child(3) {
+  transform: translateY(5px) rotate(45deg);
 }
