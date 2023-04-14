@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { type } from "os";
 import { useState, useEffect } from "react";
 
@@ -28,7 +29,10 @@ function Sidebar({ ...props }: SidebarProperties) {
       <nav className="menu">
         <ul>
           <li>
-            <a href="#">Home</a>
+            <Link href="notifications" onClick={()=>{
+              const nextToggleState = !isSidebarOpen;
+              props.toggleOpen(nextToggleState);
+            }}>Notifications</Link>
           </li>
           <li>
             <a href="#">About</a>
