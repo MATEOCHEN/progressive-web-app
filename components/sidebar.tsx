@@ -31,35 +31,29 @@ function Sidebar({ ...props }: SidebarProperties) {
       <nav className="menu">
         <ul>
           <li>
-            <Link
-              href="install"
-              onClick={() => {
-                const nextToggleState = !isSidebarOpen;
-                props.toggleOpen(nextToggleState);
-              }}
-            >
+            <Link href="install" onClick={toggleMenu}>
               Install APP
             </Link>
           </li>
           <li>
-            <Link
-              href="notifications"
-              onClick={() => {
-                const nextToggleState = !isSidebarOpen;
-                props.toggleOpen(nextToggleState);
-              }}
-            >
+            <Link href="notifications" onClick={toggleMenu}>
               Notifications
             </Link>
           </li>
           <li>
-            <Link href="about">About</Link>
+            <Link href="about" onClick={toggleMenu}>
+              About
+            </Link>
           </li>
           <li>
-            <a href="#">Services</a>
+            <Link href="service" onClick={toggleMenu}>
+              Service
+            </Link>
           </li>
           <li>
-            <a href="#">Contact</a>
+            <a href="contact" onClick={toggleMenu}>
+              Contact
+            </a>
           </li>
         </ul>
       </nav>

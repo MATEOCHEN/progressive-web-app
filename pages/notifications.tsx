@@ -4,7 +4,7 @@ const Notifications = () => {
     <>
       <Image
         style={{ paddingTop: 80 }}
-        src={"/icons/download.jpg"}
+        src={"/icons/icon-72x72.png"}
         alt="notification"
         width={100}
         height={100}
