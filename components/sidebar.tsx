@@ -7,19 +7,21 @@ function Sidebar({ ...props }: SidebarProperties) {
   useEffect(() => {
     setIsSidebarOpen(props.isOpen);
   }, [props.isOpen]);
-
+  const toggleMenu = () => {
+    const nextToggleState = !isSidebarOpen;
+    props.toggleOpen(nextToggleState);
+  };
   return (
     <div className={`sidebar ${isSidebarOpen ? "show" : "hide"}`}>
       <div className="sidebar-header">
-        <h3>Menu</h3>
-        <button
-          className=""
-          aria-label="Toggle Sidebar"
-          onClick={() => {
-            const nextToggleState = !isSidebarOpen;
-            props.toggleOpen(nextToggleState);
-          }}
+        <Link
+          href={"/"}
+          style={{ textDecoration: "none" }}
+          onClick={toggleMenu}
         >
+          <h3>Apple Shop</h3>
+        </Link>
+        <button className="" aria-label="Toggle Sidebar" onClick={toggleMenu}>
           Close
           <span></span>
           <span></span>
@@ -29,10 +31,26 @@ function Sidebar({ ...props }: SidebarProperties) {
       <nav className="menu">
         <ul>
           <li>
-            <Link href="notifications" onClick={()=>{
-              const nextToggleState = !isSidebarOpen;
-              props.toggleOpen(nextToggleState);
-            }}>Notifications</Link>
+            <Link
+              href="install"
+              onClick={() => {
+                const nextToggleState = !isSidebarOpen;
+                props.toggleOpen(nextToggleState);
+              }}
+            >
+              Install APP
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="notifications"
+              onClick={() => {
+                const nextToggleState = !isSidebarOpen;
+                props.toggleOpen(nextToggleState);
+              }}
+            >
+              Notifications
+            </Link>
           </li>
           <li>
             <a href="#">About</a>
