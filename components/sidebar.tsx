@@ -53,7 +53,7 @@ function Sidebar({ ...props }: SidebarProperties) {
             </Link>
           </li>
           <li>
-            <a href="#">About</a>
+            <Link href="about">About</Link>
           </li>
           <li>
             <a href="#">Services</a>
