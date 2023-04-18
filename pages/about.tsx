@@ -1,8 +1,8 @@
 const Test = () => {
   return (
     <>
-      <div style={{ marginTop: "100px", marginLeft: "20px" }}>
-        <h1>歡迎來到我們的蘋果水果電商網站！</h1>
+      <div className="mt-[90px] pl-10">
+        <h1 className="text-4xl text-[#ff0000]">歡迎來到我們的蘋果水果電商網站！</h1>
 
         <p>
           我們是一家專注於提供新鮮、優質蘋果的網上商店。我們的產品只限於蘋果，我們的目標是為客戶提供最好的蘋果。

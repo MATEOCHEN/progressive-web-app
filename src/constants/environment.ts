@@ -10,7 +10,7 @@ enum DataSource {
 }
 
 const CURRENT_ENVIRONMENT = process.env.CURRENT_ENVIRONMENT
-const DATA_SOURCE = process.env.DATA_SOURCE
+const DATA_SOURCE = DataSource.MOCK
 
 const CDN_DOMAIN = "https://greenblob.azureedge.net"
 
