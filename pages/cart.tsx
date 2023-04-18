@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import ShoppingCart from "../components/cart";
+import ShoppingCart from "src/components/cart";
 
 const Test = () => {
   return (
     <>
-    <ShoppingCart></ShoppingCart>
+      <ShoppingCart></ShoppingCart>
     </>
   );
 };

@@ -18,7 +18,7 @@ import useAnimation from "src/hooks/useAnimation";
 import { fadeXAnimation } from "src/libs/animations/fade";
 
 const ShoppingCart = () => {
-  const cartCountRef = useRef(document.getElementsByClassName("cart_no"));
+  const cartCountRef = useRef<HTMLCollection>(null);
   const cartRef = useRef<HTMLDivElement>(null);
 
   const cartToggleElement = useObserver({
@@ -29,7 +29,7 @@ const ShoppingCart = () => {
         mutation.attributeName === "class"
       ) {
         setCartToggle(
-          cartToggleElement.current?.classList.contains("open") || false
+          cartToggleElement?.current?.classList.contains("open") || false
         );
       }
     },
@@ -58,16 +58,16 @@ const ShoppingCart = () => {
 
   const closeCart = () => {
     setCartToggle(false);
-    cartToggleElement.current?.classList.remove("open");
+    cartToggleElement?.current?.classList.remove("open");
   };
 
   const setCartOpen = (isOpen: boolean) => {
     setCartToggle(isOpen);
 
     if (isOpen) {
-      cartToggleElement.current?.classList.add("open");
+      cartToggleElement?.current?.classList.add("open");
     } else {
-      cartToggleElement.current?.classList.remove("open");
+      cartToggleElement?.current?.classList.remove("open");
     }
   };
 
