@@ -6,7 +6,7 @@ export default function Home() {
     <div className={styles.container}>
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://greenbox.tw/">Apple Store</a>
+          Welcome to <Link href="https://greenbox.tw/">Apple Store</Link>
         </h1>
 
         <p className={styles.description}>
