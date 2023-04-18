@@ -36,6 +36,10 @@ function Sidebar({ ...props }: SidebarProperties) {
             </Link>
           </li>
           <li>
+            <Link href="cart" onClick={toggleMenu}>
+              Shop Now
+            </Link>
+          </li>          <li>
             <Link href="notifications" onClick={toggleMenu}>
               Notifications
             </Link>
@@ -51,9 +55,9 @@ function Sidebar({ ...props }: SidebarProperties) {
             </Link>
           </li>
           <li>
-            <a href="contact" onClick={toggleMenu}>
+            <Link href="contact" onClick={toggleMenu}>
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

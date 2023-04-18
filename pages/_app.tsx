@@ -1,5 +1,6 @@
 import Head from "next/head";
 import "../styles/globals.css";
+import "../styles/index.css";
 import Sidebar from "../components/sidebar";
 import { AppProps } from "next/app";
 import { useState } from "react";

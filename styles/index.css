@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./animation.css";
+
+@layer components {
+    .exclude-slide-fade-in {
+        animation: slideFadeIn 0.3s ease-in-out;
+        transform-origin: top;
+        animation-fill-mode: forwards;
+    }
+
+    .exclude-slide-fade-out {
+        animation: slideFadeOut 0.3s ease-in-out;
+        transform-origin: top;
+        animation-fill-mode: forwards;
+        pointer-events: none;
+    }
+
+    .rotate-original {
+        animation: rotateOriginal 0.3s ease-in-out;
+        transform-origin: center;
+        animation-fill-mode: forwards;
+    }
+
+    .rotate-reverse {
+        animation: rotateReverse 0.3s ease-in-out;
+        transform-origin: center;
+        animation-fill-mode: forwards;
+    }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  .exclude-display-none {
+    display: none;
+  }
+
+  .default-btn {
+    background-color: transparent;
+    border: none;
+  }
+
+  .default-anchor {
+    background-color: transparent !important;
+    border: none !important;
+    text-decoration: none !important;
+  }
+
+  .no-affected {
+    font-size: 16px !important;
+  }
+
+  .c-normal {
+    @apply bg-[#ff8e88] text-[#fff] border-[#fff] fill-[#fff] !important;
+  }
+
+  .c-frozen {
+    @apply bg-[#cff6ff] text-[#001455] border-[#001455] fill-[#001455] !important;
+  }
+
+  .c-refrigerated {
+    @apply bg-[#73bf00] text-[#fff] border-[#fff] fill-[#fff] !important;
+  }
+
+  .c-normal-reverse {
+    @apply bg-[#fff] text-[#ff8e88] border-[#fff] fill-[#ff8e88] !important;
+  }
+
+  .c-frozen-reverse {
+    @apply bg-[#fff] text-[#001455] border-[#fff] fill-[#001455] !important;
+  }
+
+  .c-refrigerated-reverse {
+    @apply bg-[#fff] text-[#73bf00] border-[#fff] fill-[#73bf00] !important;
+  }
+}
+
+.customScroll {
+  scrollbar-width: thin;
+  scrollbar-color: #4ba83b #acffad;
+}
+
+.customScroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.customScroll::-webkit-scrollbar-track {
+  background: #acffad;
+}
+
+.customScroll::-webkit-scrollbar-thumb {
+  background-color: #4ba83b;
+  border-radius: 5px;
+}
