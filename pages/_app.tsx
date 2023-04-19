@@ -4,11 +4,23 @@ import "../styles/index.css";
 import Sidebar from "../components/sidebar";
 import { AppProps } from "next/app";
 import { useState } from "react";
+import PushNotificationLayout from "./layout/pushNotificationLayout";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <>
+      <PushNotificationLayout>
+        <div>
+          <div>
+            <>
+              <span>Child 1</span>
+              <span>Child 2</span>
+            </>
+          </div>
+        </div>
+      </PushNotificationLayout>
       <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
