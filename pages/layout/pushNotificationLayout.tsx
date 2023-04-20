@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { getMessaging, onMessage } from "firebase/messaging";
+import { onBackgroundMessage } from "firebase/messaging/sw";
 import firebaseInit from "utils/firebase";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/router";
@@ -12,13 +13,13 @@ function PushNotificationLayout({ children }: PushNotificationLayoutProperty) {
 
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
-        .register("./firebase-messaging-sw.js")
+        .register("./firebase-messaging-sw.js", { scope: "/notifications/" })
         .then((registration) => {
           console.log(
             "Service worker registration successfully with scope: ",
-            registration.scope
+            registration
           );
-          console.log(navigator.serviceWorker, "stevensogood");
+          console.log(navigator.serviceWorker.controller);
         });
       navigator.serviceWorker.addEventListener("message", (event) => {
         console.log("event for the service worker", event);
@@ -50,7 +51,17 @@ function PushNotificationLayout({ children }: PushNotificationLayoutProperty) {
     console.log(messaging);
 
     onMessage(messaging, (payload) => {
-      alert(payload)
+      const { navigator } = window;
+      navigator.serviceWorker.getRegistration().then((registration) => {
+        const notificationOptions = {
+          body: payload.notification?.body,
+          icon: payload.notification?.icon,
+        };
+        registration?.showNotification(
+          payload.notification?.title ?? "",
+          notificationOptions
+        );
+      });
       toast(
         <div
           onClick={() =>
@@ -64,6 +75,23 @@ function PushNotificationLayout({ children }: PushNotificationLayoutProperty) {
           closeOnClick: false,
         }
       );
+    });
+    onBackgroundMessage(messaging, (payload) => {
+      console.log(
+        "[firebase-messaging-sw.js] Received background message ",
+        payload
+      );
+      // Customize notification here
+      const notificationTitle = "Background Message Title";
+      const notificationOptions = {
+        body: "Background Message body.",
+        icon: "/firebase-logo.png",
+      };
+
+      const { navigator } = window;
+      navigator.serviceWorker.getRegistration().then((registration) => {
+        registration?.showNotification(notificationTitle, notificationOptions);
+      });
     });
   }
 
