@@ -2,8 +2,20 @@ import Image from "next/image";
 const Notifications = () => {
   return (
     <>
+      <button
+        style={{
+          marginTop: 80,
+          marginLeft: 30,
+          padding: 10,
+          borderRadius: "5px",
+          background: "#01a084",
+          color: "white",
+        }}
+      >
+        Get Notifications
+      </button>
       <Image
-        style={{ paddingTop: 80 }}
+        style={{ paddingTop: 20 }}
         src={"/icons/icon-72x72.png"}
         alt="notification"
         width={100}
