@@ -11,6 +11,24 @@ const Notifications = () => {
           background: "#01a084",
           color: "white",
         }}
+        onClick={() => {
+          if (
+            navigator.serviceWorker &&
+            window.PushManager &&
+            window.Notification
+          ) {
+            navigator.serviceWorker.getRegistration().then((registration) => {
+              registration?.pushManager
+                .subscribe({ userVisibleOnly: true })
+                .then(() => {
+                  console.log("Push Notification are available");
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            });
+          }
+        }}
       >
         Get Notifications
       </button>
@@ -25,6 +43,7 @@ const Notifications = () => {
     </>
   );
 };
+
 const sendNotification = async () => {
   if (Notification.permission === "granted") {
     showNotification("Steven so goood!");
