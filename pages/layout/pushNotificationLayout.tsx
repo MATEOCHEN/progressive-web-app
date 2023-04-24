@@ -54,7 +54,7 @@ function PushNotificationLayout({ children }: PushNotificationLayoutProperty) {
     console.log(messaging, "getMessage is called");
 
     onMessage(messaging, (payload) => {
-      alert(payload);
+      alert(JSON.stringify(payload));
       const { navigator } = window;
       navigator.serviceWorker.getRegistration().then((registration) => {
         const notificationOptions = {
