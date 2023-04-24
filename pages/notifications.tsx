@@ -19,7 +19,11 @@ const Notifications = () => {
           ) {
             navigator.serviceWorker.getRegistration().then((registration) => {
               registration?.pushManager
-                .subscribe({ userVisibleOnly: true })
+                .subscribe({
+                  userVisibleOnly: true,
+                  applicationServerKey:
+                    "BBS9-RYIJUMhXUeJhIXPva1EShEn3ORQ9aYM7hcKVdiMSC2G913I5_9f3_hvR0d2dWKN6XYuPodzbzwlkrNcUCE",
+                })
                 .then(() => {
                   console.log("Push Notification are available");
                 })

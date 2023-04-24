@@ -12,8 +12,16 @@ function PushNotificationLayout({ children }: PushNotificationLayoutProperty) {
 
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
-        .register("./firebase-messaging-sw.js", { scope: "/notifications/" })
+        .register("./firebase-messaging-sw.js", { scope: "/notifications" })
         .then((registration) => {
+          if (registration.installing) {
+            console.log("Service worker installing");
+          } else if (registration.waiting) {
+            console.log("Service worker installed");
+          } else if (registration.active) {
+            console.log("Service worker active");
+          }
+          console.log(registration, "show registration");
           console.log(navigator.serviceWorker.controller);
         });
       navigator.serviceWorker.addEventListener("message", (event) => {
@@ -43,17 +51,16 @@ function PushNotificationLayout({ children }: PushNotificationLayoutProperty) {
   // Get the push notification message and triggers a toast to display it
   function getMessage() {
     const messaging = getMessaging();
-    console.log(messaging);
+    console.log(messaging, "getMessage is called");
 
     onMessage(messaging, (payload) => {
+      alert(payload);
       const { navigator } = window;
-      alert("testing push notification");
       navigator.serviceWorker.getRegistration().then((registration) => {
         const notificationOptions = {
           body: payload.notification?.body,
           icon: payload.notification?.icon,
         };
-
         //   registration?.showNotification(
         //     payload.notification?.title ?? "",
         //     notificationOptions

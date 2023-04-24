@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getMessaging, getToken } from "firebase/messaging";
-import localforage from "localforage";
+import localForage from "localforage";
 
 const init = async () => {
   const firebaseConfig = {
@@ -14,7 +14,7 @@ const init = async () => {
   const app = initializeApp(firebaseConfig);
   const messaging = getMessaging(app);
   try {
-    const tokenInLocalForage = await localforage.getItem("fcm_token");
+    const tokenInLocalForage = await localForage.getItem("fcm_token");
 
     // Return the token if it is alredy in our local storage
     if (tokenInLocalForage !== null) {
@@ -32,7 +32,7 @@ const init = async () => {
       // Set token in our local storage
       if (fcm_token) {
         console.log("fcm token is: " + fcm_token);
-        localforage.setItem("fcm_token", fcm_token);
+        localForage.setItem("fcm_token", fcm_token);
         return fcm_token;
       }
     }
