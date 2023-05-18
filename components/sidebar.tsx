@@ -39,15 +39,6 @@ function Sidebar({ ...props }: SidebarProperties) {
             <Link href="cart" onClick={toggleMenu}>
               Shop Now
             </Link>
-          </li>          <li>
-            <Link href="notifications" onClick={toggleMenu}>
-              Notifications
-            </Link>
-          </li>
-          <li>
-            <Link href="about" onClick={toggleMenu}>
-              About
-            </Link>
           </li>
           <li>
             <Link href="service" onClick={toggleMenu}>
@@ -55,8 +46,8 @@ function Sidebar({ ...props }: SidebarProperties) {
             </Link>
           </li>
           <li>
-            <Link href="contact" onClick={toggleMenu}>
-              Contact
+            <Link href="about" onClick={toggleMenu}>
+              About
             </Link>
           </li>
         </ul>
